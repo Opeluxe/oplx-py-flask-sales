@@ -1,5 +1,6 @@
 gunicorn
 flask
+lightgbm
 pandas
 numpy
 dill
