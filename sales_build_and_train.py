@@ -41,6 +41,7 @@ class PreProcessing(BaseEstimator, TransformerMixin):
     def transform(self, df):
         """Regular transform() that is a help for training, validation & testing datasets
         """
+        import pandas as pd
         df['size_date'] = df.groupby('Date')['Store'].transform('size')
         df['total_clients_per_date'] = df.groupby('Date')['Customers'].transform('sum')
         df['Date'] = pd.to_datetime(df['Date'],yearfirst=True)
@@ -61,6 +62,7 @@ class PreProcessing(BaseEstimator, TransformerMixin):
         return self
     
     def categoricalValues(self, df, column):
+        import pandas as pd
         s = pd.Categorical(df[column])
         s = s.codes
         s.astype(int)
@@ -73,7 +75,7 @@ if __name__ == '__main__':
     model = build_and_train(train_file)
 
 #   Store the model
-    filename = base_path + '/model/model_v2.pk'
+    filename = base_path + '/model/model_v3.pk'
     with open(filename, 'wb') as file:
         pickle.dump(model, file)
 
