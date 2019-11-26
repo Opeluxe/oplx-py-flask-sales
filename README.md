@@ -1,4 +1,4 @@
-# oplx-py-streamlit-sales
+# oplx-py-flask-sales
 Basic implementation of web service (using **flask**) to consume ML model (sales prediction).
 
 ## Execution
