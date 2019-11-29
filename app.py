@@ -69,6 +69,15 @@ def index():
     nrows = request.get_json()['number']
     sample = request.get_json()['sample']
     random = request.get_json()['random']
+    print("Number: {}, Sample: {}, Random: {}".format(nrows, sample, random))
+    if sample:
+        print("Sample is true")
+    else:
+        print("Sample is false")
+    if random:
+        print("Random is true")
+    else:
+        print("Random is false")
     
     #predicting using model
     loaded_model = load_model()
